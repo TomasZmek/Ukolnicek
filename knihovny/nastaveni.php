@@ -9,7 +9,7 @@ dibi::connect(array(
 	    'driver' => 'mysql',
 	    'host' => 'localhost',
 	    'username' => 'root',
-	    'password' => '331218-Blanka',
+	    'password' => '',
 	    'database' => 'ukolnicek',
 	    'charset' => 'utf8'
 	));
