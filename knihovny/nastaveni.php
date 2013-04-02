@@ -1,4 +1,5 @@
 <?php
+define('DOCUMENT_ROOT', dirname(realpath(__FILE__)).'/');
 /*
  * Soubor nastavení pro úkolovníček
  */
@@ -18,6 +19,11 @@ include_once dirname(__FILE__). '/../vzhled/header.php';
 include_once dirname(__FILE__). '/../vzhled/obsah.php';
 include_once dirname(__FILE__). '/../vzhled/footer.php';
 include_once dirname(__FILE__). '/../vzhled/sidebar.php';
+include_once dirname(__FILE__). '/../vzhled/administrace.php';
+include_once dirname(__FILE__). '/../vzhled/adminmenu.php';
+
+
+
 
 // načetení dalších knihoven
 include_once dirname(__FILE__). '/uzivatele.php';

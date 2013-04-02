@@ -19,13 +19,14 @@ function vypsatUzivatele()
 	}
 	else
 		{
-			echo '<table id="uzivatele">
+			echo '<div id="content"><h2>Seznam uživatelů</h2><table id="uzivatele">
 				<tr><th><strong>Jméno</strong></th><th><strong>E-mail</strong></th><th><strong>Akce</strong></th></tr>';
 		foreach ($dotaz as $radek) {
 			echo '<tr><th>' . htmlspecialchars($radek["uzivatel_jmeno"]) 
 			.'</th><th>'. htmlspecialchars($radek["uzivatel_email"]) . '</th><th><a href="uzivatel.php?upravit=' . $radek["uzivatel_id"] . '">Upravit</a> <a href="uzivatel.php?smazat=' . $radek["uzivatel_id"] . '">Smazat</a></th></tr>';
 			
 		}
+		echo '</table></div>';
 		}
 }
 //overeni jestli e-mail uz neni u jineho uzivatele
@@ -86,5 +87,29 @@ function zobrazUzivatele() {
 		echo "<option value='" . $row['uzivatel_id'] . "'>" . $row['uzivatel_jmeno'] . "</option>";
 	}
 	echo "</select>";
+}
+function uzivateleForm()
+{
+?>		<div id="content"><h2>Přidat uživatele</h2>
+		<form name="pridatu" method="POST">
+					<fieldset>
+						<label for="jmeno">Jméno:</label>
+						<input name="jmeno" id="jmeno" type="text" value="" />
+						<br />
+						<label for="email">E-mail:</label>
+						<input name="email" id="email" type="email" value="" />
+						<br />
+						<label for="heslo">Zadejte heslo:</label>
+						<input name="heslo" id="heslo" type="password" />
+						<br />
+						<label for="heslo2">Zopakujte heslo:</label>
+						<input name="heslo2" id="heslo2" type="password" />
+						<br />
+						<input name="pridatu" type="submit" value="Přidat uživatele" />
+					</fieldset>
+				</form>
+			</div>
+<?php
+pridej();
 }
 ?>

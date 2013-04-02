@@ -12,7 +12,7 @@ function prihlas() {
 		
 		if ($id == TRUE) {
 			$_SESSION['prihlaseny_id'] = $id;
-		header("location: /ukolnicek/"); //tady to bude chtit vymyslet neco lepsiho
+		header("location: /Ukolnicek/"); //tady to bude chtit vymyslet neco lepsiho
 			
 		}
 		
@@ -37,7 +37,19 @@ function odhlaseni()
 if (isset($_GET['odhlasit']))
 {
 	session_destroy();
-    header("location: /ukolnicek/");
+    header("location: /Ukolnicek/");
     exit;
 }
+}
+//overeni jestli ma uzivatel potrebne opravneni
+function opravneni()
+{
+	$id = $_SESSION['prihlaseny_id'];
+	$dotaz = dibi::query('SELECT [uzivatel_opravneni] FROM [uzivatele] WHERE [uzivatel_id]=%i', $id);
+	$opravneni = $dotaz->fetchSingle();	
+	
+	if ($opravneni=='admin')
+	return TRUE;
+	else 
+		return FALSE;
 }

@@ -3,7 +3,7 @@ function paticka()
 {
 ?>
 	<div id="footer">
-		<p>(c)2013 by perteus - ukolovníček</p>
+		<p>(c)2013 by perteus - Úkolníček</p>
 	</div>
 </div>
 </body>
