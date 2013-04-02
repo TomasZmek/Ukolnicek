@@ -24,8 +24,8 @@ verze 0.2
 - Přidáno ověření přihlašování dle oprávnění. Zatím je funkční oprávnění "admin" - "Administrátor", který má přístup
 do administrační části aplikace.
 - V plánu jsou tyto oprávnění
--- Správce - má oprávnění přidávat členům úkoly. Sám úkol od členů nemůže obdržet, pouze od správce.
--- Člen - má oprávnění si přidat nový úkol k dokončení, jiným členům ani správcům úkol přidat nemůže. Může od Správců 
+- 'Správce' - má oprávnění přidávat členům úkoly. Sám úkol od členů nemůže obdržet, pouze od správce.
+- 'Člen' - má oprávnění si přidat nový úkol k dokončení, jiným členům ani správcům úkol přidat nemůže. Může od Správců 
 úkol obdržet.
 
 verze 0.1
