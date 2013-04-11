@@ -15,6 +15,38 @@ function pridejUkol()
 	$hodnoty = array('ukol_jmeno'=> $jmeno, 'ukol_popis'=>$popis, 'ukol_datumV'=>$datump, 'ukol_datumD'=>$datumd, 'ukol_uzivatel'=>$uzivatel, 'ukol_seznam'=>$seznam);
 	dibi::query('INSERT INTO [ukoly]', $hodnoty);
 }
+// funkce pro odeslani mailu
+function poslatmail()
+{
+	$texy = new Texy();
+	$texy->process($_POST['popis']);
+	$datumd = $_POST['datumd'];
+	$uzivatel = $_POST['uzivatel'];
+	$seznam = $_POST['seznam'];
+	$dotaz = dibi::select("uzivatel_email")
+				->from("uzivatele")
+				->where("uzivatel_id=%i",$uzivatel)
+				->fetchSingle();
+	$telo = $texy->process($_POST['popis']);
+	$subject = "Nový úkol: ".$_POST['jmeno'];
+
+	$headers = "From: ukolnicek@zrnek.cz \r\n";
+	$headers .= "Reply-To: info@zrnek.cz \r\n";
+	$headers .= "MIME-Version: 1.0\r\n";
+	$headers .= "Content-Type: text/html; charset=utf-8\r\n";
+	$message = '<html><body>';
+	$message .= '<img src="http://blog.flamingtext.com/blog/2013/04/10/flamingtext_com_1365602752_176921550.png" border="0" alt="Logo Design by FlamingText.com" title="Logo Design by FlamingText.com" />';
+	$message .= '<table rules="all" style="border-color: #666;" cellpadding="10">';
+	$message .= "<tr style='background: #eee;'><td><strong>Název úkolu:</strong> </td><td>" . $_POST['jmeno'] . "</td></tr>";
+	$message .= "<tr><td><strong>Termín:</strong> </td><td>" . $datumd . "</td></tr>";
+	$message .= "<tr><td><strong>Popis:</strong> </td><td>" . $telo . "</td></tr>";
+	$message .= "</table>";
+	$message .= "</body></html>";
+	if( mail($dotaz, $subject, $message, $headers) )
+    {echo 'OK - mail odeslán';}
+	else
+    {echo 'CHYBA - odeslání se nepovedlo';}
+	}
 // validace dat z formulare pro pridani ukolu
 function pridatukol()
 {
