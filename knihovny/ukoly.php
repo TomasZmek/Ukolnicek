@@ -65,7 +65,10 @@ function pridatukol()
 		{
 			echo "Je nutné zadat nějaký popis";
 		}
-		else pridejUkol ();
+		else {
+			pridejUkol ();
+			poslatmail();
+			}
 	}
 }
 // formular pro pridani ukolu
