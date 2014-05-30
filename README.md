@@ -45,10 +45,10 @@ verze 0.1
 CO JE PLÁNOVÁNO
 ===============
 
-- přidání rolí (administrátor, člen)
-- registrace + schválení ze strany administrátora
-- Zaslání e-mailu v případě, že je přidán úkol - e-mail bude zaslán zvolenému zpracovateli
-- Zaslání e-mailu v případě, že je úkon přidán jako dokončený - e-mail bude zaslán tomu, co úkol zadal
-- Vytvoření funkce pro výpočet počtu dnů do dokončení úkolu a s tím i zobrazování upozornění
-- Vkládání poznámek do dokončeného úkolu - ze strany zpracovatele a ze strany zadavatele úkolu
-- Hodnocení, jak byl úkol dokončen :-) - ze strany zadavatele úkolu
+- [x] přidání rolí (administrátor, člen)
+- [ ] registrace + schválení ze strany administrátora
+- [x] Zaslání e-mailu v případě, že je přidán úkol - e-mail bude zaslán zvolenému zpracovateli
+- [x] Zaslání e-mailu v případě, že je úkon přidán jako dokončený - e-mail bude zaslán tomu, co úkol zadal
+- [ ] Vytvoření funkce pro výpočet počtu dnů do dokončení úkolu a s tím i zobrazování upozornění
+- [ ] Vkládání poznámek do dokončeného úkolu - ze strany zpracovatele a ze strany zadavatele úkolu
+- [ ] Hodnocení, jak byl úkol dokončen :-) - ze strany zadavatele úkolu
