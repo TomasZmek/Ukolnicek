@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.4.1
+-- version 4.1.12
 -- http://www.phpmyadmin.net
 --
--- Počítač: 127.0.0.1
--- Vygenerováno: Pon 07. dub 2014, 15:35
--- Verze serveru: 5.6.11
--- Verze PHP: 5.5.3
+-- Host: localhost
+-- Generation Time: Jun 05, 2014 at 11:43 
+-- Server version: 5.6.16
+-- PHP Version: 5.5.11
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,15 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Databáze: `ukolnicek`
+-- Database: `ukolnicek`
 --
-CREATE DATABASE IF NOT EXISTS `ukolnicek` DEFAULT CHARACTER SET utf8 COLLATE utf8_czech_ci;
-USE `ukolnicek`;
 
 -- --------------------------------------------------------
 
 --
--- Struktura tabulky `categories`
+-- Table structure for table `categories`
 --
 
 CREATE TABLE IF NOT EXISTS `categories` (
@@ -35,7 +33,7 @@ CREATE TABLE IF NOT EXISTS `categories` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci AUTO_INCREMENT=2 ;
 
 --
--- Vypisuji data pro tabulku `categories`
+-- Dumping data for table `categories`
 --
 
 INSERT INTO `categories` (`id`, `name`) VALUES
@@ -44,7 +42,7 @@ INSERT INTO `categories` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktura tabulky `tasks`
+-- Table structure for table `tasks`
 --
 
 CREATE TABLE IF NOT EXISTS `tasks` (
@@ -59,50 +57,42 @@ CREATE TABLE IF NOT EXISTS `tasks` (
   `done` int(11) NOT NULL,
   `date_done` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci AUTO_INCREMENT=2 ;
 
 --
--- RELACE PRO TABULKU `tasks`:
---   `assignee`
---       `users` -> `id`
---   `author`
---       `users` -> `id`
---   `category`
---       `categories` -> `id`
---
-
---
--- Vypisuji data pro tabulku `tasks`
+-- Dumping data for table `tasks`
 --
 
 INSERT INTO `tasks` (`id`, `name`, `description`, `category`, `author`, `assignee`, `created`, `term`, `done`, `date_done`) VALUES
-(1, 'Posekat', 'Posekat zahrádku', 1, 2, 1, '2014-04-03 00:00:00', '2014-04-19 00:00:00', 0, '0000-00-00 00:00:00'),
-(2, '', 'Pokus', 0, 0, 0, '2014-04-07 12:56:29', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00'),
-(3, 'pokus2', 'sfsadfsdjsdlkjsldjsldkfsdůlajůsdksdůlfsdf', 0, 0, 0, '2014-04-07 13:39:04', '0000-00-00 00:00:00', 0, '0000-00-00 00:00:00');
+(1, 'pokus', 'Tohle je jen pokus', 1, 1, 1, '2014-06-05 22:02:33', '2014-06-07 00:00:00', 0, '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
 --
--- Struktura tabulky `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `login` varchar(250) COLLATE utf8_czech_ci NOT NULL,
-  `password` varchar(250) COLLATE utf8_czech_ci NOT NULL,
-  `name` varchar(250) COLLATE utf8_czech_ci NOT NULL,
-  `surname` varchar(250) COLLATE utf8_czech_ci NOT NULL,
-  `email` varchar(250) COLLATE utf8_czech_ci NOT NULL,
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `username` varchar(128) COLLATE utf8_czech_ci DEFAULT NULL,
+  `password` varchar(128) COLLATE utf8_czech_ci DEFAULT NULL,
+  `email` varchar(128) COLLATE utf8_czech_ci DEFAULT NULL,
+  `role` varchar(64) COLLATE utf8_czech_ci DEFAULT NULL,
+  `created` datetime DEFAULT NULL,
+  `modified` datetime DEFAULT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_czech_ci AUTO_INCREMENT=2 ;
 
 --
--- Vypisuji data pro tabulku `users`
+-- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `login`, `password`, `name`, `surname`, `email`) VALUES
-(1, 'perteus', 'blanka', 'Tomáš', 'Zmek', 'perteus@gmail.com'),
-(2, 'janie', 'matyas', 'Žaneta', 'Velebová', 'janie@seznam.cz');
+INSERT INTO `users` (`id`, `username`, `password`, `email`, `role`, `created`, `modified`, `status`) VALUES
+(1, 'admin', '9d500d25a5640f55ca8e02856e77d5545e342507', 'admin@admin.dev', 'admin', '2014-06-05 21:56:06', '2014-06-05 21:56:06', 1);
+
+-- --------------------------------------------------------
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
