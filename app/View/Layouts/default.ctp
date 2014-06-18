@@ -24,7 +24,7 @@ $cakeDescription = __d('cake_dev', 'Úkolníček2: jednoduchý správce úkoklů
 
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <?php echo $this->Html->css('jquery-ui-1.10.4.custom'); ?>s
+    <?php echo $this->Html->css('jquery-ui-1.10.4.custom'); ?>
 
 	<?php echo $this->Html->charset(); ?>
 	<title>
@@ -54,16 +54,13 @@ $cakeDescription = __d('cake_dev', 'Úkolníček2: jednoduchý správce úkoklů
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Úkolníček 2</a>
+           <h1><?php echo $this->Html->link('Úkolníček', array('controller'=>'tasks', 'action'=>'index'), array ('class'=>'navbar-brand')) ?></h1>
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li><?php echo $this->Html->link(
-                        'Úkoly',
-                        array('controller' => 'tasks', 'action' => 'index')
-                    ); ?></li>
-                <li><a href="#">Settings</a></li>
-                <li><a href="#">Profile</a></li>
+                <li><?php echo $this->Html->link('Úkoly', array('controller' => 'tasks', 'action' => 'index')); ?></li>
+                <li><a href="#">Nastavení</a></li>
+                <li><a href="#">Profil</a></li>
                 <li><a href="#">Help</a></li>
             </ul>
             <form class="navbar-form navbar-right">
@@ -74,15 +71,7 @@ $cakeDescription = __d('cake_dev', 'Úkolníček2: jednoduchý správce úkoklů
 </div>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
-            <ul class="nav nav-sidebar">
-                <li><?php echo $this->Html->link(
-                        'Nový úkol',
-                        array('controller' => 'tasks', 'action' => 'taskAdd')
-                    ); ?></li>
-            </ul>
-        </div>
-
+        <?php echo $this->element('sidebar');?>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
 
             <div class="row placeholders">
