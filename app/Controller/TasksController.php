@@ -41,7 +41,7 @@ class TasksController extends AppController{
         $this->loadModel('User');
         $this->loadModel('Category');
 
-        $this->set('assignee', $this->User->find('list'));
+        $this->set('assignee', $this->User->find('list', array('fields' => array('User.username'))));
         $this->set('category', $this->Category->find('list'));
         if ($this->request->is('post')) {
             $this->request->data['Task']['author'] = $this->Auth->user('id');
@@ -60,7 +60,7 @@ class TasksController extends AppController{
         $this->loadModel('User');
         $this->loadModel('Category');
 
-        $this->set('assignee', $this->User->find('list'));
+        $this->set('assignee', $this->User->find('list', array('fields' => array('User.username'))));
         $this->set('category', $this->Category->find('list'));
         if (!$id) {
             throw new NotFoundException(__('Neznámé číslo úkolu'));
