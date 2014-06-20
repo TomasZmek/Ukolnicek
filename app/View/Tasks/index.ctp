@@ -33,7 +33,7 @@
                         '<button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-edit"></span> Upravit</button>',
                         array('action' => 'taskEdit', $task['Task']['id']),
                         array('escape' => false)) ?> <?php
-                    echo $this->Html->link(
+                    echo $this->Form->Postlink(
                         '<button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-trash"></span> Smazat</button>',
                         array('action' => 'taskDelete', $task['Task']['id']),
                         array(
