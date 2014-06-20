@@ -43,19 +43,24 @@ echo $this->Form->create('Task', array(
         ?>
     </div>
 </div>
-<div class="form-group">
+<div class="form-group row">
     <?php echo $this->Form->label('term', 'Termín', array(
         'class' => 'col-sm-2 control-label',
     )) ?>
-    <div class="col-sm-10">
+    <div class="col-sm-2">
         <?php
         //nastaveni terminu dokonceni. Nutne jeste provest lepsi formatovani
         echo $this->Form->input('term', array(
-            'type'=>'date',
+            'type'=>'text',
             'label'=> false,
-            'class' => 'form-control',
-            'dateFormat' => 'DMY',));
+            'error' => false,
+            'id' => 'select_date',
+            'class' => 'form-control fl tal vat w300p',
+        ));
         ?>
+        <?php echo $this->Html->div('datepicker fl pl460p pa', ' ' ,array('id' => 'datepicker')); ?>
+        <?php echo $this->Html->div('datepicker fl pl460p pa', ' ' ,array('id' => 'datepicker')); ?>
+        <div>&nbsp;</div>
     </div>
 </div>
 <div class="form-group">

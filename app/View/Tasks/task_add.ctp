@@ -51,15 +51,13 @@ echo $this->Form->create('Task', array(
     <?php
 //nastaveni terminu dokonceni. Nutne jeste provest lepsi formatovani
 echo $this->Form->input('term', array(
-    'type'=>'date',
+    'type'=>'text',
     'label'=> false,
     'error' => false,
     'id' => 'select_date',
     'class' => 'form-control fl tal vat w300p',
     ));
     ?>
-    <?php echo $this->Html->div('datepicker_img w100p fl pl460p pa',
-        $this->Html->image('datepicker_calendar_icon.gif'),array('id' => 'datepicker_img')); ?>
     <?php echo $this->Html->div('datepicker fl pl460p pa', ' ' ,array('id' => 'datepicker')); ?>
         <?php echo $this->Html->div('datepicker fl pl460p pa', ' ' ,array('id' => 'datepicker')); ?>
         <div>&nbsp;</div>
@@ -73,9 +71,9 @@ echo $this->Form->input('term', array(
 
     <div class="col-sm-4">
     <?php
-echo $this->Form->input('description', array(
+echo $this->Form->textarea('description', array(
     'label' => false,
-    'class' => 'form-control',
+    'class' => 'ckeditor form-control',
     'rows' => '10'));
 echo $this->Form->submit('Uložit', array('class' => 'btn btn-primary'));
 $this->Form->end();

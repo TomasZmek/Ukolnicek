@@ -89,11 +89,13 @@ $cakeDescription = __d('cake_dev', 'Úkolníček2: jednoduchý správce úkoklů
    ================================================== -->
 <!-- Placed at the end of the document so the pages load faster -->
 
-<script src="/ukolnicek2/js/jquery-1.10.2.js"></script>
-<script src="/ukolnicek2/js/jquery-ui-1.10.4.custom.min.js"></script>
+<?php echo $this->Html->script('ckeditor/ckeditor'); ?>
+<?php echo $this->Html->script('jquery-1.10.2'); ?>
+<?php echo $this->Html->script('jquery-ui-1.10.4.custom.min'); ?>
+<?php echo $this->Html->script('bootstrap.min'); ?>
 <script type="text/javascript">
     $(document).ready(function(){
-        $("#datepicker_img img").click(function(){
+        $("#select_date").click(function(){
             $("#datepicker").datepicker(
                 {
                     dateFormat: 'yy-mm-dd',
@@ -106,8 +108,6 @@ $cakeDescription = __d('cake_dev', 'Úkolníček2: jednoduchý správce úkoklů
         });
     });
 </script>
-<script src="/ukolnicek2/js/bootstrap.min.js"></script>
-
 
 </body>
 </html>
