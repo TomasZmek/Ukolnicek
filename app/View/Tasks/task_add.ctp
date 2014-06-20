@@ -69,7 +69,7 @@ echo $this->Form->input('term', array(
 
     )) ?>
 
-    <div class="col-sm-4">
+    <div class="col-sm-10">
     <?php
 echo $this->Form->textarea('description', array(
     'label' => false,

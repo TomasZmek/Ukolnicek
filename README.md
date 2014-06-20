@@ -8,8 +8,13 @@ Jedná se o druhou verzi webové aplikace úkolníček. V současné době ve v�
 Postup práce
 ==========
 
-18.06.2014
+20.06.2014
+----------
+- Přidán datepicker pro výběr termínu dokončení pomocí jquery-ui
+- Přidán pro vkládání a editaci ckeditor
 
+18.06.2014
+-----------
 - Dopsána funkce pro ukončení úkolu. Pokud je úkol hotový, lze tímto uzavřít. 
 - V indexu se zobrazují pouze nedokončené úkoly
 - Ve formuláři pro přidání úkolu a jeho editaci se již končeně zobrauje jméno uživatele, kterému se má úkol přiřadit

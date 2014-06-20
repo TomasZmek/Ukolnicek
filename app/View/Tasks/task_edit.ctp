@@ -70,9 +70,9 @@ echo $this->Form->create('Task', array(
     )) ?>
     <div class="col-sm-10">
 <?php
-echo $this->Form->input('description', array(
+echo $this->Form->textarea('description', array(
     'label' => false,
-    'class' => 'form-control',
+    'class' => 'form-control ckeditor',
     'rows' => '10')); ?>
         </div>
     <?php
