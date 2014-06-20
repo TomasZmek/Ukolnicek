@@ -30,16 +30,16 @@
                     ?></td>
                 <td><?php
                     echo $this->Html->link(
-                        'Upravit',
-                        array('action' => 'taskEdit', $task['Task']['id'])
-                    );
-                    ?>| <?php
-                    echo $this->Form->postLink(
-                        'Smazat',
+                        '<button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-edit"></span> Upravit</button>',
+                        array('action' => 'taskEdit', $task['Task']['id']),
+                        array('escape' => false)) ?> <?php
+                    echo $this->Html->link(
+                        '<button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-trash"></span> Smazat</button>',
                         array('action' => 'taskDelete', $task['Task']['id']),
-                        array('confirm' => 'Jste si jistý?')
-                    );
-                    ?></td>
+                        array(
+                            'escape' => false,
+                            'confirm' => 'Opravdu smazat úkol?')
+                        ) ?></td>
 
             </tr>
             <?php endforeach; ?>
