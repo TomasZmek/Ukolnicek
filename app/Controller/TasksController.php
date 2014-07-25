@@ -47,7 +47,22 @@ class TasksController extends AppController {
 			$this -> Task -> create();
 			if ($this -> Task -> save($this -> request -> data)) {
 				$this -> Session -> setFlash(__('Úkol byl uložen.'));
-				return $this -> redirect(array('action' => 'index'));
+
+                $userId = $this->request->data['Task']['assignee'];
+                $assignee = $this->User->find('first', array(
+                    'conditions' => array('User.id' => $userId)
+                ));
+
+                App::uses('CakeEmail', 'Network/Email');
+                $Email = new CakeEmail('smtp');
+                $Email->template('addTask')
+                    ->emailFormat('both')
+                    ->from('ukolnicek@znrek.cz')
+                    ->to($assignee['User']['email'])
+                    ->subject('Obdrzel jste novy ukol!')
+                    ->send();
+
+                return $this -> redirect(array('action' => 'index'));
 			}
 
 			$this -> Session -> setFlash(__('Úkol nebylo možné uložit.'));

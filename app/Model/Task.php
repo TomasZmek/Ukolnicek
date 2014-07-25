@@ -9,6 +9,7 @@
 class Task extends AppModel{
     public $name = 'Task';
 
+
     /**
      * Propojeni tabulek users a tasks, kdy je tu zavyslost na tasks.author => users.id
      * a tasks.assignee => users.id . V TasksControlleru pak staci volat find('all')
@@ -23,7 +24,7 @@ class Task extends AppModel{
         ),
         'Assignee'=>array(
             'className'=>'User',
-            'foreignKey'=>'assignee'
+            'foreignKey'=>'id'
         ),
         'Category' =>array(
             'className' => 'Category',

@@ -8,7 +8,12 @@
 App::uses('AuthComponent', 'Controller/Component');
 
 class User extends AppModel {
-
+    public $hasMany= array(
+        'Task' => array(
+            'className' => 'Task',
+            'foreignKey'=>'assignee'
+        )
+    );
     public $avatarUploadDir = 'img/avatars';
 
     public $validate = array(

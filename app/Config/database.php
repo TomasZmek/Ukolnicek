@@ -66,7 +66,7 @@ class DATABASE_CONFIG {
 		'persistent' => false,
 		'host' => 'localhost',
 		'login' => 'root',
-		'password' => 'mysql',
+		'password' => '',
 		'database' => 'ukolnicek',
 		'prefix' => '',
 		'encoding' => 'utf8',
