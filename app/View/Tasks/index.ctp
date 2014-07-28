@@ -12,6 +12,7 @@
                 <td>Akce</td>
             </tr>
             <?php foreach ($tasks as $task): ?>
+
             <tr>
 
                 <td><?php echo $task['Task']['id'];?></td>

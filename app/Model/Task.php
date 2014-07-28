@@ -24,7 +24,7 @@ class Task extends AppModel{
         ),
         'Assignee'=>array(
             'className'=>'User',
-            'foreignKey'=>'id'
+            'foreignKey'=>'assignee'
         ),
         'Category' =>array(
             'className' => 'Category',

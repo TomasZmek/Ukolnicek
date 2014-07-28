@@ -13,7 +13,8 @@ class TasksController extends AppController {
 	 * Vypis vsech ukolu v indexu, ktere nebyly dokonceny
 	 */
 	public function index() {
-		$this -> set('tasks', $this -> Task -> find('all', array('conditions' => array('Task.done' => '0'))));
+
+		$this -> set('tasks', $this -> Task -> find('all', array('conditions' => array('Task.done' => '0'), 'order'=>'Task.created DESC')));
 	}
 
 	/**
@@ -47,20 +48,21 @@ class TasksController extends AppController {
 			$this -> Task -> create();
 			if ($this -> Task -> save($this -> request -> data)) {
 				$this -> Session -> setFlash(__('Úkol byl uložen.'));
-
                 $userId = $this->request->data['Task']['assignee'];
-                $assignee = $this->User->find('first', array(
+                $assigneer = $this->User->find('first', array(
                     'conditions' => array('User.id' => $userId)
                 ));
-
+                /**
+                 * Odesilani mailu v pripade, pridani ukolu
+                 */
                 App::uses('CakeEmail', 'Network/Email');
                 $Email = new CakeEmail('smtp');
                 $Email->template('addTask')
                     ->emailFormat('both')
                     ->from('ukolnicek@znrek.cz')
-                    ->to($assignee['User']['email'])
+                    ->to($assigneer['User']['email'])
                     ->subject('Obdrzel jste novy ukol!')
-                    ->send();
+                    ->send('smtp');
 
                 return $this -> redirect(array('action' => 'index'));
 			}
