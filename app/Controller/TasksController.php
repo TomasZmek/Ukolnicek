@@ -122,6 +122,17 @@ class TasksController extends AppController {
 		}
 	}
 
+    /**
+     *
+     */
+    public function tasksDeleteSelected(){
+        foreach($this->request->data['task'] as $key => $value)
+        {
+            $this->Tasks->delete($key);
+        }
+        $this->redirect($this->referer());
+    }
+
 	/**
 	 * @param null $id
 	 * @throws NotFoundException

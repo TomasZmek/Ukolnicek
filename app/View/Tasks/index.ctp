@@ -1,7 +1,7 @@
 <h2 class="sub-header">Dostupné úkoly</h2>
 <div class="table-responsive">
         <table class="table table-striped">
-            <tr>
+            <tr><td>Výběr</td>
                 <td>Id</td>
                 <td>Jméno</td>
                 <td>Autor</td>
@@ -15,6 +15,7 @@
 
             <tr>
 
+                <td><?php echo $this->Form->checkbox('Tasks.'.$task['Task']['id'], array('value'=> $task['Task']['id'], 'hiddenField' => false)); ?></td>
                 <td><?php echo $task['Task']['id'];?></td>
                 <td><?php echo $this->Html->link($task['Task']['name'], array('controller' => 'tasks', 'action' => 'view', $task['Task']['id']))?></td>
                 <td><?php echo $task['Author']['username']; ?></td>
@@ -44,6 +45,14 @@
 
             </tr>
             <?php endforeach; ?>
-            <?php unset($task); ?>
+
             </table>
+    <?php echo $this->Form->Postlink(
+        '<button type="button" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-trash"></span> Smazat vybrané</button>',
+        array('action' => 'tasksDeleteSelected'),
+        array(
+            'escape' => false,
+            'confirm' => 'Opravdu smazat vybrané úkoly?')
+    ) ?>
+    <?php unset($task); ?>
     </div>
