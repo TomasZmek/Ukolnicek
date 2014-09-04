@@ -1,20 +1,20 @@
-<div class="users form">
-<?php echo $this->Form->create('User'); ?>
+<div class="form-group">
+<?php echo $this->Form->create('User', array('class'=>'form-horizontal'));?>
     <fieldset>
         <legend><?php echo __('Edit User'); ?></legend>
         <?php
         echo $this->Form->hidden('id', array('value' => $this->data['User']['id']));
-        echo $this->Form->input('username', array( 'readonly' => 'readonly', 'label' => 'Usernames cannot be changed!'));
-        echo $this->Form->input('email');
-        echo $this->Form->input('password_update', array( 'label' => 'New Password (leave empty if you do not want to change)', 'maxLength' => 255, 'type'=>'password','required' => 0));
-        echo $this->Form->input('password_confirm_update', array('label' => 'Confirm New Password *', 'maxLength' => 255, 'title' => 'Confirm New password', 'type'=>'password','required' => 0));
-         
+        echo $this->Form->input('username', array( 'readonly' => 'readonly', 'label' => 'Usernames cannot be changed!', 'class' => 'form-control'));
+        echo $this->Form->input('email' , array('class' => 'form-control'));
+        echo $this->Form->input('password', array('label'=>'Password - Leav empty if not change', 'class' => 'form-control'));
+        echo $this->Form->input('password_confirm', array('label' => 'Confirm Password *', 'maxLength' => 255, 'title' => 'Confirm password', 'type'=>'password', 'class' => 'form-control'));
  
-        echo $this->Form->input('role', array(
-            'options' => array( 'king' => 'King', 'queen' => 'Queen', 'rook' => 'Rook', 'bishop' => 'Bishop', 'knight' => 'Knight', 'pawn' => 'Pawn')
+      echo $this->Form->input('role', array(
+            'options' => array( 'admin' => 'Administrátro', 'manager' => 'Správce', 'uzivatel' => 'Uživatel'), 'class' => 'form-control'
         ));
         echo $this->Form->submit('Edit User', array('class' => 'form-submit',  'title' => 'Click here to add the user') );
-?>
+       
+        ?>
     </fieldset>
 <?php echo $this->Form->end(); ?>
 </div>
